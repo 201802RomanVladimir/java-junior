@@ -10,7 +10,7 @@ import java.io.*;
 
 public class LoggerTest implements SysoutCaptureAndAssertionAbility {
 	
-	public static String newLineSeparator = System.getProperty("line.separator");
+	private static String newLineSeparator = System.getProperty("line.separator");
 	
     //region given
     @Before
