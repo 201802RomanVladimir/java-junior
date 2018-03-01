@@ -10,10 +10,12 @@ public class Logger {
     private static final String STRING_PREFIX = "string";
     private static final String REFERENCE_PREFIX = "reference";
     private static final String PRIMITIVE_PREFIX = "primitive";
+    private static final String PRIMITIVE_ARRAY_PREFIX = "primitives array";
+    private static final String PRIMITIVE_MATRIX_PREFIX = "primitives matrix";
 
     private static final String MESSAGE_TEMPLATE = "%s: %s%s";
 
-    private static String resultBuffer;
+    private static String resultBuffer = "";
     private static String previousTypeName;
     private static String previousString;
     private static int repeatCount;
@@ -86,15 +88,60 @@ public class Logger {
     }
 
     /**
+     * Print array.
+     * @param message The array to be printed.
+     */
+    public static void log(int[] message) {
+        flushIfTypeChanged(message);
+        resultBuffer += buildMessage(PRIMITIVE_ARRAY_PREFIX, arrayToString(message));
+    }
+
+    /**
+     * Print matrix.
+     * @param message The matrix to be printed.
+     */
+    public static void log(int[][] message) {
+        flushIfTypeChanged(message);
+        resultBuffer += buildMessage(PRIMITIVE_MATRIX_PREFIX, matrixToString(message));
+    }
+
+    /**
      * Flush and print message.
      */
     public static void flush() {
+        printMessage();
+
         sum = 0;
         repeatCount = 0;
-        printMessage();
+        resultBuffer = "";
     }
 
     //region Privates
+
+    private static String arrayToString(int[] array) {
+        StringBuilder resultSB = new StringBuilder("{");
+        for (int i = 0; i < array.length; i++) {
+            if (i > 0) {
+                resultSB.append(", ");
+            }
+            resultSB.append(array[i]);
+        }
+        resultSB.append("}");
+
+        return resultSB.toString();
+    }
+
+    private static String matrixToString(int[][] matrix) {
+        StringBuilder resultSB = new StringBuilder("{");
+        resultSB.append(System.lineSeparator());
+        for (int i = 0; i < matrix.length; i++) {
+            resultSB.append(arrayToString(matrix[i]));
+            resultSB.append(System.lineSeparator());
+        }
+        resultSB.append("}");
+
+        return resultSB.toString();
+    }
 
     private static void flushIfTypeChanged(Object message) {
         String objectTypeName = message.getClass().getSimpleName();
