@@ -7,12 +7,16 @@ import com.acme.edu.savers.ConsoleSaverImpl;
 import java.util.ArrayList;
 
 /**
- *
+ * Управление процессом логирования
  */
 public class LoggerController {
     private ArrayList<Message> messageList = new ArrayList<>();
     private Saver saver = new ConsoleSaverImpl();
 
+    /**
+     * Обработка сообщения {@code message}
+     * @param message сообщение для логирования
+     */
     public void log(Message message) {
         if (isCameMessageWithAnotherType(message) || message.isNeedAccumulationReset()){
             flush();
@@ -26,6 +30,9 @@ public class LoggerController {
         messageList.add(message);
     }
 
+    /**
+     * Вывод накопленных сообщений из буфера
+     */
     public void flush() {
         for (Message m: messageList) {
             saver.save(m);

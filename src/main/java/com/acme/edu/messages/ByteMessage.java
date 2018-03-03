@@ -1,34 +1,14 @@
 package com.acme.edu.messages;
 
+import com.acme.edu.accumulators.SumAccumulatorImpl;
+
 public class ByteMessage extends Message {
-    private static long sum;
-
     public ByteMessage(byte value) {
-        super(value, MessagePrefix.PRIMITIVE);
+        super(value, MessagePrefix.PRIMITIVE, new SumAccumulatorImpl(Byte.MAX_VALUE));
     }
 
     @Override
-    protected String getMessageString() {
-        return String.valueOf(sum);
-    }
-
-    @Override
-    public boolean isAccumulationEnabled() {
-        return true;
-    }
-
-    @Override
-    public boolean isNeedAccumulationReset() {
-        return sum + (byte)getValue() > Byte.MAX_VALUE;
-    }
-
-    @Override
-    public void doAccumulationAction() {
-        sum += (byte)getValue();
-    }
-
-    @Override
-    public void resetAccumulationState() {
-        sum = 0;
+    protected String getFormattedValue() {
+        return String.valueOf(getAccumulator().getAccumulationValue());
     }
 }

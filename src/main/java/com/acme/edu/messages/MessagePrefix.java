@@ -1,5 +1,8 @@
 package com.acme.edu.messages;
 
+/**
+ * Префиксы сообщения
+ */
 public enum MessagePrefix {
     PRIMITIVE("primitive"),
     CHAR("char"),
@@ -15,8 +18,8 @@ public enum MessagePrefix {
     }
 
     /**
-     * Get name for enum item.
-     * @return Return enum name.
+     * Возвращает значение префикса.
+     * @return значение префикса.
      */
     public String getName() {
         return name;

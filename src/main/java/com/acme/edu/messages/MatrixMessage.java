@@ -8,7 +8,7 @@ public class MatrixMessage extends Message {
     }
 
     @Override
-    protected String getMessageString() {
-        return ArrayHelper.matrixToString((int[][])getValue());
+    protected String getFormattedValue() {
+        return ArrayHelper.intMatrixToString((int[][])getValue());
     }
 }

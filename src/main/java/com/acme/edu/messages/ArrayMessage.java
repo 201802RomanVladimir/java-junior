@@ -7,7 +7,7 @@ public class ArrayMessage extends Message {
         super(value, MessagePrefix.ARRAY);
     }
 
-    protected String getMessageString() {
-        return ArrayHelper.arrayToString((int[])getValue());
+    protected String getFormattedValue() {
+        return ArrayHelper.intArrayToString((int[])getValue());
     }
 }
