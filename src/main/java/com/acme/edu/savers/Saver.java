@@ -7,7 +7,7 @@ import com.acme.edu.messages.Message;
  */
 public interface Saver {
     /**
-     * Сохряет сообщение {@code message}
+     * Сохраняет сообщение {@code message}
      * @param message сообщение
      */
     void save(Message message);

@@ -10,7 +10,7 @@ public class RepeatCounterAccumulatorImpl implements Accumulator {
     private static int repeatCount;
 
     /**
-     * Сравнивает значения соббщения {@code message} с предыдущим сообщением того же типа
+     * Сравнивает значения собщения {@code message} с предыдущим сообщением того же типа
      * @param message сообщение для аккумуляции
      * @return {@code true} если значение сообщения было изменено, в противном случае {@code false}
      */

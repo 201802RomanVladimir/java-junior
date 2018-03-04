@@ -2,7 +2,7 @@ package com.acme.edu.messages;
 
 import com.acme.edu.accumulators.SumAccumulatorImpl;
 
-public class IntMessage extends Message {
+public final class IntMessage extends Message {
     public IntMessage(int value) {
         super(value, MessagePrefix.PRIMITIVE, new SumAccumulatorImpl(Integer.MAX_VALUE));
     }

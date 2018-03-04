@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Управление процессом логирования
  */
-public class LoggerController {
+class LoggerController {
     private ArrayList<Message> messageList = new ArrayList<>();
     private Saver saver = new ConsoleSaverImpl();
 
@@ -42,6 +42,7 @@ public class LoggerController {
     }
 
     private boolean isCameMessageWithAnotherType(Message message) {
-        return !messageList.isEmpty() && messageList.get(0).getValue().getClass() != message.getValue().getClass();
+        return !messageList.isEmpty() &&
+                messageList.get(0).getValue().getClass() != message.getValue().getClass();
     }
 }

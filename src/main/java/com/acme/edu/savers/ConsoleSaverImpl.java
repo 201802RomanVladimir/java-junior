@@ -5,7 +5,7 @@ import com.acme.edu.messages.Message;
 /**
  * Вывод сообщения в консоль
  */
-public class ConsoleSaverImpl implements Saver {
+public final class ConsoleSaverImpl implements Saver {
     /**
      * Выводит сообщение {@code message} в консоль
      * @param message сообщение

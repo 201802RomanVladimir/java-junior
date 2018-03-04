@@ -2,7 +2,7 @@ package com.acme.edu.messages;
 
 import com.acme.edu.accumulators.RepeatCounterAccumulatorImpl;
 
-public class StringMessage extends Message {
+public final class StringMessage extends Message {
     public StringMessage(String value) {
         super(value, MessagePrefix.STRING, new RepeatCounterAccumulatorImpl());
     }

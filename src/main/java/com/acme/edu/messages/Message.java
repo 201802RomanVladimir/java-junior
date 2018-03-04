@@ -8,9 +8,9 @@ import com.acme.edu.accumulators.Accumulator;
 public abstract class Message {
     private static final String MESSAGE_TEMPLATE = "%s: %s";
 
-    private Accumulator accumulator;
-    private Object value;
-    private MessagePrefix prefix;
+    private final Accumulator accumulator;
+    private final Object value;
+    private final MessagePrefix prefix;
 
     public Message(Object value, MessagePrefix prefix) {
         this(value, prefix, null);
@@ -22,13 +22,7 @@ public abstract class Message {
         this.accumulator = accumulator;
     }
 
-    /**
-     * Возвращает значение сообщения
-     * @return значение сообщения
-     */
-    public Object getValue() {
-        return value;
-    }
+    //region Accumulators
 
     /**
      * Возвращает аккумулятор, применяемый к текущенму типу сообщения
@@ -44,7 +38,7 @@ public abstract class Message {
      * @return true, если возможность аккумилирования есть
      */
     public boolean isAccumulationEnabled() {
-        return accumulator != null;
+        return getAccumulator() != null;
     }
 
     /**
@@ -72,6 +66,16 @@ public abstract class Message {
         if (isAccumulationEnabled()) {
             accumulator.resetAccumulationState();
         }
+    }
+
+    //endregion Accumulators
+
+    /**
+     * Возвращает значение сообщения
+     * @return значение сообщения
+     */
+    public Object getValue() {
+        return value;
     }
 
     /**

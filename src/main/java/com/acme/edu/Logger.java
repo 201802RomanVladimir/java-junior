@@ -7,7 +7,7 @@ import com.acme.edu.messages.*;
  * @author 201802RomanVladimir
  */
 public class Logger {
-    private static LoggerController loggerController = new LoggerController();
+    private final static LoggerController loggerController = new LoggerController();
 
     /**
      * Логирование сообщения {@code message} типа {@code int}

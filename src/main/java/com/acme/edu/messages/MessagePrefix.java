@@ -3,7 +3,7 @@ package com.acme.edu.messages;
 /**
  * Префиксы сообщения
  */
-public enum MessagePrefix {
+enum MessagePrefix {
     PRIMITIVE("primitive"),
     CHAR("char"),
     STRING("string"),
