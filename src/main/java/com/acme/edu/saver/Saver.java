@@ -1,6 +1,6 @@
-package com.acme.edu.savers;
+package com.acme.edu.saver;
 
-import com.acme.edu.messages.Message;
+import com.acme.edu.message.Message;
 
 /**
  * Интерфейс для сохранеия сообщений

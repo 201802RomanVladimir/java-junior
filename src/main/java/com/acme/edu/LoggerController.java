@@ -1,8 +1,8 @@
 package com.acme.edu;
 
-import com.acme.edu.messages.Message;
-import com.acme.edu.savers.Saver;
-import com.acme.edu.savers.ConsoleSaverImpl;
+import com.acme.edu.message.Message;
+import com.acme.edu.saver.Saver;
+import com.acme.edu.saver.ConsoleSaver;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 class LoggerController {
     private ArrayList<Message> messageList = new ArrayList<>();
-    private Saver saver = new ConsoleSaverImpl();
+    private Saver saver = new ConsoleSaver();
 
     /**
      * Обработка сообщения {@code message}

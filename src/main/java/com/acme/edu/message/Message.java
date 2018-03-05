@@ -1,22 +1,23 @@
-package com.acme.edu.messages;
+package com.acme.edu.message;
 
-import com.acme.edu.accumulators.Accumulator;
+import com.acme.edu.accumulator.Accumulator;
 
 /**
  * Абстрактный класс сообщения
+ * Smart command
  */
 public abstract class Message {
     private static final String MESSAGE_TEMPLATE = "%s: %s";
 
     private final Accumulator accumulator;
     private final Object value;
-    private final MessagePrefix prefix;
+    private final String prefix;
 
-    public Message(Object value, MessagePrefix prefix) {
+    public Message(Object value, String prefix) {
         this(value, prefix, null);
     }
 
-    public Message(Object value, MessagePrefix prefix, Accumulator accumulator) {
+    public Message(Object value, String prefix, Accumulator accumulator) {
         this.value = value;
         this.prefix = prefix;
         this.accumulator = accumulator;
@@ -25,7 +26,7 @@ public abstract class Message {
     //region Accumulators
 
     /**
-     * Возвращает аккумулятор, применяемый к текущенму типу сообщения
+     * Возвращает аккумулятор, применяемый к текущенму типу сообщения.
      * Может вернуть null, если аккумулятор не задан
      * @return аккумулятор
      */
@@ -34,20 +35,20 @@ public abstract class Message {
     }
 
     /**
-     * Есть ли в сообщении возможность аккумилирования
-     * @return true, если возможность аккумилирования есть
+     * Есть ли в сообщении возможность аккумулирования
+     * @return true, если возможность аккумулирования есть, иначе false
      */
     public boolean isAccumulationEnabled() {
         return getAccumulator() != null;
     }
 
     /**
-     * Сообщает вызывающему классу о достижении граничного значения при аккумулировании
+     * Сообщает вызывающему классу о достижении граничного значения при аккумулировании.
      * При этом вызывающий класс может выполнить какие-то действия. Например, flush()
      * @return true, если граничное значение достигнуто, иначе false
      */
     public boolean isNeedAccumulationReset() {
-        return isAccumulationEnabled() && accumulator.isNeedAccumulationReset(this);
+        return isAccumulationEnabled() && accumulator.isNeedAccumulationReset(getValue());
     }
 
     /**
@@ -55,7 +56,7 @@ public abstract class Message {
      */
     public void doAccumulationAction() {
         if (isAccumulationEnabled()) {
-            accumulator.doAccumulationAction(this);
+            accumulator.doAccumulationAction(getValue());
         }
     }
 
@@ -93,6 +94,6 @@ public abstract class Message {
      */
     @Override
     public String toString() {
-        return String.format(MESSAGE_TEMPLATE, prefix.getName(), getFormattedValue());
+        return String.format(MESSAGE_TEMPLATE, prefix, getFormattedValue());
     }
 }

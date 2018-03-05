@@ -1,4 +1,4 @@
-package com.acme.edu.helpers;
+package com.acme.edu.helper;
 
 /**
  * Вспомогательные методы для массивов

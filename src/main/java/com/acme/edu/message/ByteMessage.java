@@ -1,10 +1,12 @@
-package com.acme.edu.messages;
+package com.acme.edu.message;
 
-import com.acme.edu.accumulators.SumAccumulatorImpl;
+import com.acme.edu.accumulator.SumNumberAccumulator;
 
 public final class ByteMessage extends Message {
+    private static final String PREFIX = "primitive";
+
     public ByteMessage(byte value) {
-        super(value, MessagePrefix.PRIMITIVE, new SumAccumulatorImpl(Byte.MAX_VALUE));
+        super(value, PREFIX, new SumNumberAccumulator<Byte>(Byte.MAX_VALUE));
     }
 
     @Override

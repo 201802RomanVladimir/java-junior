@@ -1,11 +1,11 @@
-package com.acme.edu.savers;
+package com.acme.edu.saver;
 
-import com.acme.edu.messages.Message;
+import com.acme.edu.message.Message;
 
 /**
  * Вывод сообщения в консоль
  */
-public final class ConsoleSaverImpl implements Saver {
+public final class ConsoleSaver implements Saver {
     /**
      * Выводит сообщение {@code message} в консоль
      * @param message сообщение

@@ -1,9 +1,9 @@
 package com.acme.edu;
 
-import com.acme.edu.messages.*;
+import com.acme.edu.message.*;
 
 /**
- * Логирования сообщений разного типа
+ * Логирование сообщений разного типа
  * @author 201802RomanVladimir
  */
 public class Logger {
