@@ -1,12 +1,12 @@
 package com.acme.edu.message;
 
-import com.acme.edu.accumulator.RepeatCounterAccumulator;
+import com.acme.edu.accumulator.StringRepeatCounterAccumulator;
 
 public final class StringMessage extends Message {
     private static final String PREFIX = "string";
 
     public StringMessage(String value) {
-        super(value, PREFIX, new RepeatCounterAccumulator());
+        super(value, PREFIX, new StringRepeatCounterAccumulator(value));
     }
 
     @Override

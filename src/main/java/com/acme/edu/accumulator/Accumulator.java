@@ -1,24 +1,20 @@
 package com.acme.edu.accumulator;
 
-import com.acme.edu.message.Message;
-
 /**
- * Интерфейс аккумуляторов
- * Предназначен для реализации алгоритма накопления данных в логгере
+ * Интерфейс аккумуляторов.
+ * Предназначен для реализации алгоритма накопления данных в логгере.
  */
-public interface Accumulator<T> {
+public interface Accumulator {
     /**
-     * Проверяет достижение граничного значения при аккумулировании сообщения {@code message}
-     * @param value значение для аккумуляции
+     * Проверяет достижение граничного значения при аккумулировании значения.
      * @return {@code true} если граничное значение будет достигнуто, в противном случае {@code false}
      */
-    boolean isNeedAccumulationReset(T value);
+    boolean isNeedAccumulationReset();
 
     /**
-     * Выполняет операцию аккумуляции сообщения {@code message}
-     * @param value значение для аккумуляции
+     * Выполняет операцию аккумуляции значения.
      */
-    void doAccumulationAction(T value);
+    void doAccumulationAction();
 
     /**
      * Сбрасывает состояние аккумулятора к начальному состоянию

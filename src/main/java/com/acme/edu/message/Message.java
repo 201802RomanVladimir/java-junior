@@ -48,7 +48,7 @@ public abstract class Message {
      * @return true, если граничное значение достигнуто, иначе false
      */
     public boolean isNeedAccumulationReset() {
-        return isAccumulationEnabled() && accumulator.isNeedAccumulationReset(getValue());
+        return isAccumulationEnabled() && accumulator.isNeedAccumulationReset();
     }
 
     /**
@@ -56,7 +56,7 @@ public abstract class Message {
      */
     public void doAccumulationAction() {
         if (isAccumulationEnabled()) {
-            accumulator.doAccumulationAction(getValue());
+            accumulator.doAccumulationAction();
         }
     }
 

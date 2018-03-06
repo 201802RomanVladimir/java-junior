@@ -4,6 +4,9 @@ package com.acme.edu.helper;
  * Вспомогательные методы для массивов
  */
 public class ArrayHelper {
+    private ArrayHelper() {
+    }
+
     /**
      * Перевод одномерного массива int {@code array} в строку
      * @param array одномерный массив

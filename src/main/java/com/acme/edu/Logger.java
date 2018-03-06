@@ -1,13 +1,14 @@
 package com.acme.edu;
 
 import com.acme.edu.message.*;
+import com.acme.edu.saver.ConsoleSaver;
 
 /**
  * Логирование сообщений разного типа
  * @author 201802RomanVladimir
  */
 public class Logger {
-    private final static LoggerController loggerController = new LoggerController();
+    private final static LoggerController loggerController = new LoggerController(new ConsoleSaver());
 
     /**
      * Логирование сообщения {@code message} типа {@code int}
