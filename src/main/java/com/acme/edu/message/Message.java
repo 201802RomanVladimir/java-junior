@@ -1,6 +1,7 @@
 package com.acme.edu.message;
 
 import com.acme.edu.accumulator.Accumulator;
+import com.acme.edu.formatter.FormatVisitor;
 
 /**
  * Абстрактный класс сообщения
@@ -11,15 +12,13 @@ public abstract class Message {
 
     private final Accumulator accumulator;
     private final Object value;
-    private final String prefix;
 
-    public Message(Object value, String prefix) {
-        this(value, prefix, null);
+    public Message(Object value) {
+        this(value, null);
     }
 
-    public Message(Object value, String prefix, Accumulator accumulator) {
+    public Message(Object value, Accumulator accumulator) {
         this.value = value;
-        this.prefix = prefix;
         this.accumulator = accumulator;
     }
 
@@ -80,20 +79,19 @@ public abstract class Message {
     }
 
     /**
-     * Формирование значения строки сообщения
-     * Надо переопределить при необходимости поведения, отличного от принятого по-умолчанию
-     * @return форматированное значение
-     */
-    protected String getFormattedValue() {
-        return getValue().toString();
-    }
-
-    /**
      * Возвращает форматированную строку сообщения
      * @return строка сообщения
      */
     @Override
     public String toString() {
-        return String.format(MESSAGE_TEMPLATE, prefix, getFormattedValue());
+        return getValue().toString();
     }
+
+    /**
+     * Вывывает метод визитора, который соответствует типу наследуемого сообщения.
+     * Возвращает форматированную строку сообщения, которая зависит от типа сообщения.
+     * @param formatVisitor визитор
+     * @return форматированная строка
+     */
+    public abstract String accept(FormatVisitor formatVisitor);
 }

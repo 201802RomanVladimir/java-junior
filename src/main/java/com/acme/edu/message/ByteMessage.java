@@ -1,16 +1,20 @@
 package com.acme.edu.message;
 
 import com.acme.edu.accumulator.ByteSumAccumulator;
+import com.acme.edu.formatter.FormatVisitor;
 
 public final class ByteMessage extends Message {
-    private static final String PREFIX = "primitive";
-
     public ByteMessage(byte value) {
-        super(value, PREFIX, new ByteSumAccumulator(value));
+        super(value, new ByteSumAccumulator(value));
     }
 
     @Override
-    protected String getFormattedValue() {
+    public String accept(FormatVisitor formatVisitor) {
+        return formatVisitor.formatByte(this);
+    }
+
+    @Override
+    public String toString() {
         return String.valueOf(getAccumulator().getAccumulationValue());
     }
 }

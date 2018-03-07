@@ -1,9 +1,14 @@
 package com.acme.edu.message;
 
-public final class ObjectMessage extends Message {
-    private static final String PREFIX = "reference";
+import com.acme.edu.formatter.FormatVisitor;
 
+public final class ObjectMessage extends Message {
     public ObjectMessage(Object value) {
-        super(value, PREFIX);
+        super(value);
+    }
+
+    @Override
+    public String accept(FormatVisitor formatVisitor) {
+        return formatVisitor.formatObject(this);
     }
 }

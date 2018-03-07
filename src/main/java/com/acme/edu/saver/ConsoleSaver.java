@@ -1,7 +1,5 @@
 package com.acme.edu.saver;
 
-import com.acme.edu.message.Message;
-
 /**
  * Вывод сообщения в консоль
  */
@@ -11,7 +9,7 @@ public final class ConsoleSaver implements Saver {
      * @param message сообщение
      */
     @Override
-    public void save(Message message) {
+    public void save(String message) {
         System.out.println(message);
     }
 }

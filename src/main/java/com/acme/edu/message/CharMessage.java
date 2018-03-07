@@ -1,9 +1,14 @@
 package com.acme.edu.message;
 
-public final class CharMessage extends Message {
-    private static final String PREFIX = "char";
+import com.acme.edu.formatter.FormatVisitor;
 
-    public CharMessage(char value) {
-        super(value, PREFIX);
+public final class CharMessage extends Message {
+    public CharMessage(Object value) {
+        super(value);
+    }
+
+    @Override
+    public String accept(FormatVisitor formatVisitor) {
+        return formatVisitor.formatChar(this);
     }
 }

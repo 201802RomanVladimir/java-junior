@@ -1,9 +1,14 @@
 package com.acme.edu.message;
 
-public final class BooleanMessage extends Message {
-    private static final String PREFIX = "primitive";
+import com.acme.edu.formatter.FormatVisitor;
 
+public final class BooleanMessage extends Message {
     public BooleanMessage(Boolean value) {
-        super(value, PREFIX);
+        super(value);
+    }
+
+    @Override
+    public String accept(FormatVisitor formatVisitor) {
+        return formatVisitor.formatBoolean(this);
     }
 }
