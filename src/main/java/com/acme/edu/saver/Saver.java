@@ -3,6 +3,7 @@ package com.acme.edu.saver;
 /**
  * Интерфейс для сохранеия сообщений
  */
+@FunctionalInterface
 public interface Saver {
     /**
      * Сохраняет сообщение {@code message}

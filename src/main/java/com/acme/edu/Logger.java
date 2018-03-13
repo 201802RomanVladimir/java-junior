@@ -2,8 +2,6 @@ package com.acme.edu;
 
 import com.acme.edu.formatter.PrefixFormatVisitor;
 import com.acme.edu.message.*;
-import com.acme.edu.saver.ConsoleSaver;
-import com.acme.edu.saver.Saver;
 
 /**
  * Логирование сообщений разного типа

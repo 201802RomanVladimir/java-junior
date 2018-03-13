@@ -8,8 +8,6 @@ import com.acme.edu.formatter.FormatVisitor;
  * Smart command
  */
 public abstract class Message {
-    private static final String MESSAGE_TEMPLATE = "%s: %s";
-
     private final Accumulator accumulator;
     private final Object value;
 
