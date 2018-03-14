@@ -1,9 +1,11 @@
 package com.acme.edu.accumulator;
 
+import java.io.Serializable;
+
 /**
  * Аккумулятор строк с подсчётом повторяющихся значений.
  */
-public class StringRepeatCounterAccumulator implements Accumulator {
+public class StringRepeatCounterAccumulator implements Accumulator, Serializable {
     private static String previousValue;
     private static int repeatCount;
 

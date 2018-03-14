@@ -8,12 +8,12 @@ import java.util.ArrayList;
 /**
  * Управление процессом логирования
  */
-class LoggerController {
+public class LoggerController {
     private ArrayList<Message> messageList = new ArrayList<>();
     private final Saver saver;
     private FormatVisitor formatter;
 
-    LoggerController(Saver saver) {
+    public LoggerController(Saver saver) {
         this.saver = saver;
     }
 

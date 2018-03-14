@@ -3,11 +3,13 @@ package com.acme.edu.message;
 import com.acme.edu.accumulator.Accumulator;
 import com.acme.edu.formatter.FormatVisitor;
 
+import java.io.Serializable;
+
 /**
  * Абстрактный класс сообщения
  * Smart command
  */
-public abstract class Message {
+public abstract class Message implements Serializable {
     private final Accumulator accumulator;
     private final Object value;
 

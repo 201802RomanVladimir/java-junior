@@ -1,9 +1,11 @@
 package com.acme.edu.accumulator;
 
+import java.io.Serializable;
+
 /**
  * Аккумулятор типа int с подсчётом суммы.
  */
-public class IntSumAccumulator implements Accumulator {
+public class IntSumAccumulator implements Accumulator, Serializable {
     private static long sum;
 
     private int currentValue;
